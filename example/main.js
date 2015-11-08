@@ -6,10 +6,16 @@ var React = require('react');
 var r = require('r-dom');
 var MapGL = require('react-map-gl');
 var process = require('global/process');
-var ExampleOverlay = require('../example-overlay');
+var HeatmapOverlay = require('../');
 var assign = require('object-assign');
 
 var locations = require('example-cities');
+
+var INITIAL_ZOOM = 0;
+
+function scaleRelativeToZoom(radius, relativeToZoom, zoom) {
+  return radius * Math.pow(2, zoom) / Math.pow(2, relativeToZoom);
+}
 
 // This will get converted to a string by envify
 /* eslint-disable no-process-env */
@@ -27,7 +33,7 @@ var App = React.createClass({
       viewport: {
         latitude: 0,
         longitude: 0,
-        zoom: 0
+        zoom: INITIAL_ZOOM
       }
     };
   },
@@ -44,7 +50,17 @@ var App = React.createClass({
       onChangeViewport: this._onChangeViewport
     });
     return r(MapGL, props, [
-      r(ExampleOverlay, {locations: locations})
+      r(HeatmapOverlay, {
+        locations: locations,
+        // Semantic zoom
+        sizeAccessor: function sizeAccessor() {
+          return 60;
+        }
+        // Geometric zoom
+        // sizeAccessor: function sizeAccessor() {
+        //   return scaleRelativeToZoom(30, 0, this.state.viewport.zoom);
+        // }.bind(this)
+      })
     ]);
   }
 });
