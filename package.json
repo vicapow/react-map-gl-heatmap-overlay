@@ -1,5 +1,5 @@
 {
-  "name": "react-map-gl-example-overlay",
+  "name": "react-map-gl-heatmap-overlay",
   "version": "0.0.1",
   "description": "",
   "main": "index.js",
@@ -16,7 +16,8 @@
     "mapbox-gl",
     "react-map-gl",
     "map-gl",
-    "overlay"
+    "overlay",
+    "heatmap"
   ],
   "author": "Victor Powell",
   "license": "ISC",
@@ -30,7 +31,7 @@
     "example-cities": "0.0.0",
     "global": "^4.3.0",
     "object-assign": "^4.0.1",
-    "webgl-heatmap": "^0.1.0"
+    "webgl-heatmap": "^0.2.0"
   },
   "devDependencies": {
     "bistre": "^1.0.1",
