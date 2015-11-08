@@ -1,7 +1,7 @@
 # react-map-gl-heatmap-overlay
 
-A heatmap overlay for [https://github.com/uber/react-map-gl](react-map-gl) built
-using [https://github.com/vicapow/webgl-heatmap](webgl-heatmap).
+A heatmap overlay for [react-map-gl](https://github.com/uber/react-map-gl) built
+using [webgl-heatmap](https://github.com/vicapow/webgl-heatmap).
 
 ![](screenshot.png)
 
