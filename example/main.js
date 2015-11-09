@@ -38,6 +38,15 @@ var App = React.createClass({
     };
   },
 
+  componentDidMount: function componentDidMount() {
+    window.addEventListener('resize', function onResize() {
+      this.setState({
+        appWidth: window.innerWidth,
+        appHeight: window.innerHeight
+      });
+    }.bind(this));
+  },
+
   _onChangeViewport: function _onChangeViewport(viewport) {
     this.setState({viewport: viewport});
   },
