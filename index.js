@@ -1,6 +1,7 @@
 'use strict';
 
 var React = require('react');
+var Immutable = require('immutable');
 var window = require('global/window');
 var r = require('r-dom');
 var WebGLHeatmap = require('webgl-heatmap');
@@ -10,7 +11,10 @@ module.exports = React.createClass({
   displayName: 'ExampleOverlay',
 
   propTypes: {
-    locations: React.PropTypes.array.isRequired,
+    locations: React.PropTypes.oneOfType([
+      React.PropTypes.array,
+      React.PropTypes.instanceOf(Immutable.List)
+    ]),
     latLngAccessor: React.PropTypes.func,
     intensityAccessor: React.PropTypes.func,
     sizeAccessor: React.PropTypes.func
@@ -52,13 +56,13 @@ module.exports = React.createClass({
     var heatmap = this._heatmap;
     var project = this.props.project;
     heatmap.clear();
+    heatmap.adjustSize();
     this.props.locations.forEach(function each(location) {
       var size = this.props.sizeAccessor(location);
       var intensity = this.props.intensityAccessor(location);
       var pixel = project(this.props.latLngAccessor(location));
       heatmap.addPoint(pixel.x, pixel.y, size, intensity);
     }, this);
-    heatmap.adjustSize();
     heatmap.update();
     heatmap.display();
   },
