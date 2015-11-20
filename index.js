@@ -22,7 +22,7 @@ module.exports = React.createClass({
 
   getDefaultProps: function getDefaultProps() {
     return {
-      latLngAccessor: function lagLngAccessor(location) {
+      latLngAccessor: function latLngAccessor(location) {
         return [location.latitude, location.longitude];
       },
       intensityAccessor: function intensityAccessor(location) {
