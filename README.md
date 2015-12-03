@@ -1,7 +1,8 @@
 # react-map-gl-heatmap-overlay
 
 A heatmap overlay for [react-map-gl](https://github.com/uber/react-map-gl) built
-using [webgl-heatmap](https://github.com/vicapow/webgl-heatmap).
+using [webgl-heatmap](https://github.com/vicapow/webgl-heatmap) originally
+created by [Florian Boesch](https://github.com/pyalot).
 
 ![](screenshot.png)
 
