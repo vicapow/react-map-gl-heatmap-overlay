@@ -5,12 +5,18 @@ var Immutable = require('immutable');
 var window = require('global/window');
 var r = require('r-dom');
 var WebGLHeatmap = require('webgl-heatmap');
+var ViewportMercator = require('viewport-mercator-project');
 
 module.exports = React.createClass({
 
-  displayName: 'ExampleOverlay',
+  displayName: 'HeatmapOverlay',
 
   propTypes: {
+    width: React.PropTypes.number.isRequired,
+    height: React.PropTypes.number.isRequired,
+    longitude: React.PropTypes.number.isRequired,
+    latitude: React.PropTypes.number.isRequired,
+    zoom: React.PropTypes.number.isRequired,
     locations: React.PropTypes.oneOfType([
       React.PropTypes.array,
       React.PropTypes.instanceOf(Immutable.List)
@@ -22,8 +28,8 @@ module.exports = React.createClass({
 
   getDefaultProps: function getDefaultProps() {
     return {
-      latLngAccessor: function latLngAccessor(location) {
-        return [location.latitude, location.longitude];
+      lngLatAccessor: function lngLatAccessor(location) {
+        return [location.longitude, location.latitude];
       },
       intensityAccessor: function intensityAccessor(location) {
         return 1 / 10;
@@ -35,9 +41,8 @@ module.exports = React.createClass({
   },
 
   componentDidMount: function componentDidMount() {
-    var canvas = this.getDOMNode();
     this._heatmap = new WebGLHeatmap({
-      canvas: canvas,
+      canvas: this.refs.overlay,
       intensityToAlpha: true,
       alphaRange: [0, 0.1]
     });
@@ -54,14 +59,14 @@ module.exports = React.createClass({
 
   _redraw: function _redraw() {
     var heatmap = this._heatmap;
-    var project = this.props.project;
+    var mercator = ViewportMercator(this.props);
     heatmap.clear();
     heatmap.adjustSize();
     this.props.locations.forEach(function each(location) {
       var size = this.props.sizeAccessor(location);
       var intensity = this.props.intensityAccessor(location);
-      var pixel = project(this.props.latLngAccessor(location));
-      heatmap.addPoint(pixel.x, pixel.y, size, intensity);
+      var pixel = mercator.project(this.props.lngLatAccessor(location));
+      heatmap.addPoint(pixel[0], pixel[1], size, intensity);
     }, this);
     heatmap.update();
     heatmap.display();

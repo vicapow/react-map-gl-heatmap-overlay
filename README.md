@@ -15,9 +15,9 @@ var cities = require('example-cities');
 Where each element in cities looks like: `{latitude, longitude}`.
 
 ````js
-    render: function render() {
-      return <MapGL ...viewportProps>
-        <HeatmapOverlay locations={cities} />
+    render() {
+      return <MapGL {...viewport}>
+        <HeatmapOverlay locations={cities} {...viewport}/>
       </MapGL>;
     }
 ````
@@ -30,13 +30,10 @@ Data accessors can be provided if your data doesn't fit the expected
 `{latitude, longitude}` form.
 
 ````js
-    render: function render() {
-      return <MapGL ...viewportProps>
-        <HeatmapOverlay locations={houses}
-          latLngAccessor: function latLngAccessor(house) {
-            return [house.get('lat'), house.get('lng')];
-          }
-        />
+    render() {
+      return <MapGL ...viewport>
+        <HeatmapOverlay locations={houses} {...viewport}
+          latLngAccessor={(house) =>[house.get('lat'), house.get('lng')} />
       </MapGL>;
     }
 ````
@@ -44,13 +41,23 @@ Data accessors can be provided if your data doesn't fit the expected
 Other accessors and their defaults:
 
 ````js
-      intensityAccessor: function intensityAccessor(location) {
-        return 1 / 10;
-      }
+    intensityAccessor: (location) => {1 / 10}
+    sizeAccessor: (location) => 40
 ````
 
-````js
-      sizeAccessor: function sizeAccessor(location) {
-        return 40;
-      }
-````
+## Installation
+
+    npm install react-map-gl-heatmap-overlay
+
+## Developing
+
+    npm run start
+
+To run the example.
+
+## Attribution
+
+ The included example uses raster tiles by [Stamen Design](http://stamen.com),
+ under [CC BY 3.0](http://creativecommons.org/licenses/by/3.0). Data by
+[OpenStreetMap](http://openstreetmap.org), under
+[CC BY SA](http://creativecommons.org/licenses/by-sa/3.0).
