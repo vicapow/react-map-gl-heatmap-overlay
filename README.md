@@ -34,7 +34,7 @@ Data accessors can be provided if your data doesn't fit the expected
     render() {
       return <MapGL ...viewport>
         <HeatmapOverlay locations={houses} {...viewport}
-          lngLatAccessor={(house) =>[house.get('lng'), house.get('lat')} />
+          lngLatAccessor={(house) => [house.get('lng'), house.get('lat')]} />
       </MapGL>;
     }
 ````
