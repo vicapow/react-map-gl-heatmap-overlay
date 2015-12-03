@@ -13,7 +13,7 @@ var HeatmapOverlay = require('react-map-gl-heatmap-overlay');
 var cities = require('example-cities');
 ````
 
-Where each element in cities looks like: `{latitude, longitude}`.
+Where each element in cities looks like: `{longitude, latitude}`.
 
 ````js
     render() {
@@ -28,13 +28,13 @@ The `locations` prop can be an array or ImmutableJS List.
 ## Accessors
 
 Data accessors can be provided if your data doesn't fit the expected
-`{latitude, longitude}` form.
+`{longitude, latitude}` form.
 
 ````js
     render() {
       return <MapGL ...viewport>
         <HeatmapOverlay locations={houses} {...viewport}
-          latLngAccessor={(house) =>[house.get('lat'), house.get('lng')} />
+          lngLatAccessor={(house) =>[house.get('lng'), house.get('lat')} />
       </MapGL>;
     }
 ````

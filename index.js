@@ -21,9 +21,9 @@ module.exports = React.createClass({
       React.PropTypes.array,
       React.PropTypes.instanceOf(Immutable.List)
     ]),
-    latLngAccessor: React.PropTypes.func,
-    intensityAccessor: React.PropTypes.func,
-    sizeAccessor: React.PropTypes.func
+    lngLatAccessor: React.PropTypes.func.isRequired,
+    intensityAccessor: React.PropTypes.func.isRequired,
+    sizeAccessor: React.PropTypes.func.isRequired
   },
 
   getDefaultProps: function getDefaultProps() {
