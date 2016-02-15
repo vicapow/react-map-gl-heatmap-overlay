@@ -15,6 +15,14 @@ var rasterTileStyle = require('raster-tile-style');
 var tileSource = '//tile.stamen.com/toner/{z}/{x}/{y}.png';
 var mapStyle = Immutable.fromJS(rasterTileStyle([tileSource]));
 
+function color() {
+  return 'rgb(' +
+    Math.floor(Math.random() * 256) + ', ' +
+    Math.floor(Math.random() * 256) + ', ' +
+    Math.floor(Math.random() * 256) +
+  ')';
+}
+
 var App = React.createClass({
 
   displayName: 'App',
@@ -28,6 +36,7 @@ var App = React.createClass({
         longitude: 0,
         zoom: 2
       },
+      gradientColors: Immutable.List([color(), color()]),
       mapStyle: mapStyle
     };
   },
@@ -41,6 +50,9 @@ var App = React.createClass({
         })
       });
     }.bind(this));
+    window.setInterval(function setInterval() {
+      this.setState({gradientColors: Immutable.List([color(), color()])});
+    }.bind(this), 2000);
   },
 
   _onChangeViewport: function _onChangeViewport(viewport) {
@@ -58,6 +70,7 @@ var App = React.createClass({
         sizeAccessor: function sizeAccessor() {
           return 60;
         }
+        // gradientColors: this.state.gradientColors
         // Geometric zoom
         // sizeAccessor: function sizeAccessor() {
         //   return 30 * Math.pow(2, this.state.viewport.zoom - 0);

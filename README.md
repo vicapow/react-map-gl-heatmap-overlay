@@ -43,7 +43,9 @@ Other accessors and their defaults:
 
 ````js
     intensityAccessor: (location) => {1 / 10}
-    sizeAccessor: (location) => 40
+    sizeAccessor: (location) => 40,
+    // If not specified, defaults to Viridis.
+    gradientColors: Immutable.List(['blue', 'red'])
 ````
 
 ## Installation
