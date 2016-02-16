@@ -4,7 +4,7 @@ A heatmap overlay for [react-map-gl](https://github.com/uber/react-map-gl) built
 using [webgl-heatmap](https://github.com/vicapow/webgl-heatmap) originally
 created by [Florian Boesch](https://github.com/pyalot).
 
-![](screenshot.png)
+![screen shot 2016-02-15 at 1 54 42 pm](https://cloud.githubusercontent.com/assets/583385/13063531/e1571cf6-d3fd-11e5-8691-d08d1b481f4a.png)
 
 ## Usage
 
