@@ -27,7 +27,6 @@
   "license": "MIT",
   "peerDependencies": {
     "immutable": "^3.7.5",
-    "r-dom": "^2.0.0",
     "react": "0.14.x - 15.x",
     "react-dom": "0.14.x - 15.x"
   },
@@ -44,7 +43,6 @@
     "bistre": "^1.0.1",
     "budo": "^6.0.1",
     "immutable": "^3.7.5",
-    "r-dom": "^2.1.0",
     "raster-tile-style": "^1.0.1",
     "react": "^0.14.3",
     "react-dom": "^0.14.3",
