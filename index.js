@@ -4,7 +4,6 @@ var React = require('react');
 var Immutable = require('immutable');
 var window = require('global/window');
 var document = require('global/document');
-var r = require('r-dom');
 var WebGLHeatmap = require('webgl-heatmap');
 var ViewportMercator = require('viewport-mercator-project');
 var viridis = require('scale-color-perceptual/hex/viridis.json');
@@ -122,7 +121,7 @@ module.exports = React.createClass({
 
   render: function render() {
     var pixelRatio = window.devicePixelRatio || 1;
-    return r.canvas({
+    return React.createElement('canvas', {
       ref: 'overlay',
       width: this.props.width * pixelRatio,
       height: this.props.height * pixelRatio,
