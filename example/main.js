@@ -62,7 +62,7 @@ var App = React.createClass({
     return React.createElement(MapGL, assign({}, this.state.viewport, {
       onChangeViewport: this._onChangeViewport,
       mapStyle: this.state.mapStyle
-    }), [
+    }),
       React.createElement(HeatmapOverlay, assign({}, this.state.viewport, {
         locations: locations,
         // Semantic zoom
@@ -75,7 +75,7 @@ var App = React.createClass({
         //   return 30 * Math.pow(2, this.state.viewport.zoom - 0);
         // }
       }))
-    ]);
+    );
   }
 });
 
