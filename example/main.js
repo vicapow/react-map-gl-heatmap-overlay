@@ -5,7 +5,6 @@ var window = require('global/window');
 var React = require('react');
 var ReactDOM = require('react-dom');
 var Immutable = require('immutable');
-var r = require('r-dom');
 var MapGL = require('react-map-gl');
 var HeatmapOverlay = require('../');
 var assign = require('object-assign');
@@ -60,11 +59,11 @@ var App = React.createClass({
   },
 
   render: function render() {
-    return r(MapGL, assign({}, this.state.viewport, {
+    return React.createElement(MapGL, assign({}, this.state.viewport, {
       onChangeViewport: this._onChangeViewport,
       mapStyle: this.state.mapStyle
     }), [
-      r(HeatmapOverlay, assign({}, this.state.viewport, {
+      React.createElement(HeatmapOverlay, assign({}, this.state.viewport, {
         locations: locations,
         // Semantic zoom
         sizeAccessor: function sizeAccessor() {
