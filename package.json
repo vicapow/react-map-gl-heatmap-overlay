@@ -35,7 +35,6 @@
     "example-cities": "0.0.0",
     "global": "^4.3.0",
     "object-assign": "^4.0.1",
-    "react-map-gl": "^0.6.9",
     "scale-color-perceptual": "^1.1.2",
     "viewport-mercator-project": "^2.0.1",
     "webgl-heatmap": "^0.2.0"
