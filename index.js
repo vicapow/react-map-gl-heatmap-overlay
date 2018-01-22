@@ -1,6 +1,7 @@
 'use strict';
 
 var React = require('react');
+var PropTypes = require('prop-types')
 var Immutable = require('immutable');
 var window = require('global/window');
 var document = require('global/document');
@@ -14,19 +15,19 @@ module.exports = React.createClass({
   displayName: 'HeatmapOverlay',
 
   propTypes: {
-    width: React.PropTypes.number.isRequired,
-    height: React.PropTypes.number.isRequired,
-    longitude: React.PropTypes.number.isRequired,
-    latitude: React.PropTypes.number.isRequired,
-    zoom: React.PropTypes.number.isRequired,
-    locations: React.PropTypes.oneOfType([
-      React.PropTypes.array,
-      React.PropTypes.instanceOf(Immutable.List)
+    width: PropTypes.number.isRequired,
+    height: PropTypes.number.isRequired,
+    longitude: PropTypes.number.isRequired,
+    latitude: PropTypes.number.isRequired,
+    zoom: PropTypes.number.isRequired,
+    locations: PropTypes.oneOfType([
+      PropTypes.array,
+      PropTypes.instanceOf(Immutable.List)
     ]),
-    lngLatAccessor: React.PropTypes.func.isRequired,
-    intensityAccessor: React.PropTypes.func.isRequired,
-    sizeAccessor: React.PropTypes.func.isRequired,
-    gradientColors: React.PropTypes.instanceOf(Immutable.List).isRequired
+    lngLatAccessor: PropTypes.func.isRequired,
+    intensityAccessor: PropTypes.func.isRequired,
+    sizeAccessor: PropTypes.func.isRequired,
+    gradientColors: PropTypes.instanceOf(Immutable.List).isRequired
   },
 
   getDefaultProps: function getDefaultProps() {
