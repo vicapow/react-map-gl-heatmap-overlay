@@ -1,7 +1,8 @@
 'use strict';
 
 var React = require('react');
-var PropTypes = require('prop-types')
+var PropTypes = require('prop-types');
+var createReactClass = require('create-react-class');
 var Immutable = require('immutable');
 var window = require('global/window');
 var document = require('global/document');
@@ -10,7 +11,7 @@ var WebGLHeatmap = require('webgl-heatmap');
 var ViewportMercator = require('viewport-mercator-project');
 var viridis = require('scale-color-perceptual/hex/viridis.json');
 
-module.exports = React.createClass({
+module.exports = createReactClass({
 
   displayName: 'HeatmapOverlay',
 

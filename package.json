@@ -30,7 +30,8 @@
     "r-dom": "^2.0.0",
     "react": "0.14.x - 16.x",
     "react-dom": "0.14.x - 16.x",
-    "prop-types": "^15.6.0"
+    "prop-types": "^15.6.0",
+    "create-react-class": "^15.6.0"
   },
   "dependencies": {
     "example-cities": "0.0.0",
