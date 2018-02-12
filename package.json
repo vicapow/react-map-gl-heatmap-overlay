@@ -28,13 +28,15 @@
   "peerDependencies": {
     "immutable": "^3.7.5",
     "r-dom": "^2.0.0",
-    "react": "0.14.x - 15.x",
-    "react-dom": "0.14.x - 15.x"
+    "react": "0.14.x - 16.x",
+    "react-dom": "0.14.x - 16.x"
   },
   "dependencies": {
+    "create-react-class": "^15.6.0",
     "example-cities": "0.0.0",
     "global": "^4.3.0",
     "object-assign": "^4.0.1",
+    "prop-types": "^15.6.0",
     "scale-color-perceptual": "^1.1.2",
     "viewport-mercator-project": "^2.0.1",
     "webgl-heatmap": "^0.2.0"
